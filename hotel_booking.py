@@ -576,7 +576,8 @@ if navigate == "Cancelation Prediction":
     
     # Web App
     st.title("Reservation Cancelation Prediction")
-    
+    st.text("This Simple & Fast Reservation Cancelation Prediction tool will help the hotel in predicting the guest behavior with 80% accurecy.")
+    st.text("Instructions: Simply change the values of the below predictors according to your preference and you're all set up"
     # User Data Entry
     def user_report():
         hotel = st.selectbox('Hotel Type',('City Hotel','Resort Hotel'))
