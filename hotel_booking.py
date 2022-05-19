@@ -579,7 +579,7 @@ if navigate == "Cancelation Prediction":
         'Lead Time': lead_time,
         'Market Segment': market_segment,
         'Distribution Channel': distribution_channel,
-        'Total Special Requests': total_of_special_request,
+        'Total Special Requests': total_of_special_requests,
         'Room Type': assigned_room_type,
         'Booking Changes': booking_changes,
         }
