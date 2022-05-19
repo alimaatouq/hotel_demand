@@ -492,18 +492,25 @@ if navigate == "Customer Segmentation":
 # Creating the Cancelation Prediction Page 
 
 if navigate == "Cancelation Prediction":
+    
+    #identify the features and the target
     X = df[['lead_time', 'total_of_special_requests', 
                'booking_changes', 'hotel', 'assigned_room_type',
                'market_segment', 'distribution_channel', 'deposit_type']]
     y = df['is_canceled']
+    
+    #identify the numerical and categorical features
     num_vars = X.select_dtypes(include=['float', 'int']).columns.tolist()
     cat_vars = X.select_dtypes(include=['object']).columns.tolist()
+    
     #Defining categorical features and numerical features separately
     X_cat = X[[c for c in X.columns if c in cat_vars]]
     X_num = X[[c for c in X.columns if c in num_vars]]
+    
     #splitting the data  into train and test
     from sklearn.model_selection import train_test_split
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1, shuffle = True)
+    
     # deal with missing values in categorical columns
     # fill these with 'Missing'
     def fill_cat_na(X):
@@ -512,13 +519,16 @@ if navigate == "Cancelation Prediction":
             X[var] = X[var].fillna('Missing')
         return X
     fill_cat = FunctionTransformer(fill_cat_na, validate=False)
+    
     #Encoding categorical features with OneHotEncoding
     cat_encoder = OneHotEncoder(sparse=False, handle_unknown='ignore', drop = 'first')
+    
     #Pipeline for categorical features
     cat_pipeline = Pipeline([
         ('imputer', fill_cat),
         ('encoding', cat_encoder),
     ])
+    
     #Defining lower and upper limits to detect outliers
     def outliers(col):
         q1 = np.nanpercentile(col, 25)
@@ -560,11 +570,14 @@ if navigate == "Cancelation Prediction":
         print("Scores:", scores)
         print(f'Mean: {scores.mean():.3f}')
         print(f'Stdev: {scores.std():.3f}')
-
+    
+    # Train the model
     pipeline.fit(X_train,y_train)
     
+    # Web App
     st.title("Reservation Cancelation Prediction")
     
+    # User Data Entry
     def user_report():
         hotel = st.selectbox('Hotel Type',('City Hotel','Resort Hotel'))
         lead_time= st.slider('Lead Time',min_value =0,max_value=100,step=1)
@@ -588,9 +601,11 @@ if navigate == "Cancelation Prediction":
         report_data =pd.DataFrame(user_report_data, index =[0])
         return report_data
     user_data = user_report()
-    st.header('Guest Data')
-    st.write(user_data)
     
+    st.header('Guest Data')
+    st.markdown(user_data)
+    
+    # Predict the result
     prediction = pipeline.predict(user_data)
     st.subheader('The Guest is more likely to: ')
     if prediction == 0:
