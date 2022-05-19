@@ -581,7 +581,6 @@ if navigate == "Cancelation Prediction":
         'Hotel Type': hotel,
         'Room Type': assigned_room_type,
         'Market Segment': market_segment,
-        'attacking_crossing' : attacking_crossing,
         'Distribution Channel': distribution_channel,
         }
         report_data =pd.DataFrame(user_report_data, index =[0])
