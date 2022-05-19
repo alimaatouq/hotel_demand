@@ -603,7 +603,7 @@ if navigate == "Cancelation Prediction":
     user_data = user_report()
     
     st.header('Guest Data')
-    st.text(user_data)
+    st.table(user_data)
     
     # Predict the result
     prediction = pipeline.predict(user_data)
