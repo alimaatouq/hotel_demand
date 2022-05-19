@@ -589,6 +589,6 @@ if navigate == "Cancelation Prediction":
     st.header('Guest Data')
     st.write(user_data)
     
-    #prediction = pipeline.predict(user_data)
-    #st.subheader('The Guest is more likely to: ')
-    #st.subheader(str(prediction))
+    prediction = pipeline.predict(user_data)
+    st.subheader('The Guest is more likely to: ')
+    st.subheader(str(prediction))
