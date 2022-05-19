@@ -575,13 +575,13 @@ if navigate == "Cancelation Prediction":
         distribution_channel = st.selectbox("Distribution Channel", ('TA/TO', 'Direct', 'Corporate', 'GDS', 'Undefined'))
         
         user_report_data = {
-        'Lead Time': lead_time,
-        'Tota Special Requests':total_of_special_requests,
-        'Booking Changes': booking_changes,
         'Hotel Type': hotel,
-        'Room Type': assigned_room_type,
+        'Lead Time': lead_time,
         'Market Segment': market_segment,
         'Distribution Channel': distribution_channel,
+        'Tota Special Requests':total_of_special_request,
+        'Room Type': assigned_room_type,
+        'Booking Changes': booking_changes,
         }
         report_data =pd.DataFrame(user_report_data, index =[0])
         return report_data
