@@ -580,9 +580,10 @@ if navigate == "Cancelation Prediction":
         'lead_time': lead_time,
         'market_segment': market_segment,
         'distribution_channel': distribution_channel,
-        'total_of_special_requests': total_of_special_requests,
         'assigned_room_type': assigned_room_type,
         'booking_changes': booking_changes,
+        'deposit_type' : deposit_type
+        'total_of_special_requests': total_of_special_requests
         }
         report_data =pd.DataFrame(user_report_data, index =[0])
         return report_data
