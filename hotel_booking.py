@@ -566,13 +566,14 @@ if navigate == "Cancelation Prediction":
     st.title("Reservation Cancelation Prediction")
     
     def user_report():
-        lead_time= st.slider('Lead Time',min_value =0,max_value=100,step=1)
-        total_of_special_requests   = st.slider('Tota Special Requests',min_value=0,max_value=5,step=1)
-        booking_changes= st.slider('Booking Changes',min_value=0,max_value=20,step =1)
         hotel = st.selectbox('Hotel Type',('City Hotel','Resort Hotel'))
-        assigned_room_type = st.selectbox("Room Type", ("A", "B", "C", "D", "E", "F", "G", "H", "I", "K", "L", "P"))
+        lead_time= st.slider('Lead Time',min_value =0,max_value=100,step=1)
         market_segment = st.selectbox("Market Segment", ('Online TA', 'Offline TA/TO', 'Groups', 'Direct', 'Corporate', 'Complementary', 'Aviation', 'Undefined'))
         distribution_channel = st.selectbox("Distribution Channel", ('TA/TO', 'Direct', 'Corporate', 'GDS', 'Undefined'))
+        assigned_room_type = st.selectbox("Room Type", ("A", "B", "C", "D", "E", "F", "G", "H", "I", "K", "L", "P"))
+        booking_changes= st.slider('Booking Changes',min_value=0,max_value=20,step =1)
+        deposit_type = st.selectbox("Deposit Type", ('No Deposit', 'Non Refund', 'Refundable'))
+        total_of_special_requests   = st.slider('Tota Special Requests',min_value=0,max_value=5,step=1)
         
         user_report_data = {
         'hotel': hotel,
@@ -589,6 +590,6 @@ if navigate == "Cancelation Prediction":
     st.header('Guest Data')
     st.write(user_data)
     
-    prediction = pipeline.predict_proba(user_data)
+    prediction = pipeline.predict(user_data)
     st.subheader('The Guest is more likely to: ')
     st.write(str(prediction))
