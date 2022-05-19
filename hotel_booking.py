@@ -564,5 +564,29 @@ if navigate == "Cancelation Prediction":
     pipeline.fit(X_train,y_train)
     
     st.title("Reservation Cancelation Prediction")
-
     
+    def user_report():
+        lead_time= st.slider('Lead Time',min_value =0,max_value=100,step=1)
+        total_of_special_requests   = st.slider('Tota Special Requests',min_value=0,max_value=5,step=1)
+        booking_changes= st.slider('Booking Changes',min_value=0,max_value=20,step =1)
+        hotel = st.selectbox('Hotel Type',('City Hotel','Resort Hotel'))
+        assigned_room_type = st.selectbox("Room Type", ("A", "B", "C", "D", "E", "F", "G", "H", "I", "K", "L", "P"))
+        market_segment = st.selectbox("Market Segment", ('Online TA', 'Offline TA/TO', 'Groups', 'Direct', 'Corporate', 'Complementary', 'Aviation', 'Undefined'))
+        distribution_channel = st.selectbox("Distribution Channel", ('TA/TO', 'Direct', 'Corporate', 'GDS', 'Undefined'))
+        
+        user_report_data = {
+        'Lead Time': lead_time,
+        'Tota Special Requests':total_of_special_requests,
+        'Booking Changes': booking_changes,
+        'Hotel Type': hotel,
+        'Room Type': assigned_room_type,
+        'Market Segment': market_segment,
+        'attacking_crossing' : attacking_crossing,
+        'Distribution Channel': distribution_channel,
+        }
+        report_data =pd.DataFrame(user_report_data, index =[0])
+        return report_data
+    user_data = user_report()
+    st.header('Guest Data')
+    st.write(user_data)
+
