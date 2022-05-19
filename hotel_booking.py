@@ -562,6 +562,7 @@ if navigate == "Cancelation Prediction":
         print(f'Stdev: {scores.std():.3f}')
 
     pipeline.fit(X_train,y_train)
-    y_pred_proba = pipeline.predict_proba(X_test)[:,1]
+    
+    st.title("Reservation Cancelation Prediction")
 
     
