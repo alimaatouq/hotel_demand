@@ -598,7 +598,7 @@ if navigate == "Cancelation Prediction":
         'deposit_type' : deposit_type,
         'total_of_special_requests': total_of_special_requests
         }
-        report_data =pd.DataFrame(user_report_data, index =[0])
+        report_data =pd.DataFrame(user_report_data, index = False)
         return report_data
     user_data = user_report()
     
