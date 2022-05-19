@@ -593,4 +593,7 @@ if navigate == "Cancelation Prediction":
     
     prediction = pipeline.predict(user_data)
     st.subheader('The Guest is more likely to: ')
-    st.write(prediction)
+    if prediction == 0:
+        st.header("Keep the reservation")
+    else:
+        st.header("Cancel")
