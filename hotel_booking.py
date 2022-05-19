@@ -582,7 +582,7 @@ if navigate == "Cancelation Prediction":
         'distribution_channel': distribution_channel,
         'assigned_room_type': assigned_room_type,
         'booking_changes': booking_changes,
-        'deposit_type' : deposit_type
+        'deposit_type' : deposit_type,
         'total_of_special_requests': total_of_special_requests
         }
         report_data =pd.DataFrame(user_report_data, index =[0])
