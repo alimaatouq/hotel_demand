@@ -477,8 +477,7 @@ customer_categories_line_chart.update_layout(
 # Creating the Market Segmentation Page 
 
 if navigate == "Customer Segmentation":
-    st.subheader("Customer Segmentation")
-    st.markdown("<h3 style='text-align: center; color: black;'>Big headline</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: black;'>Customer Segmentation</h1>", unsafe_allow_html=True)
     select_segmentation = st.selectbox("Select Segmentation type", ('Geographic Segmentation', 'Guest Category Segmentation'))
     if select_segmentation == 'Geographic Segmentation':
         country_col = st.columns(2)
