@@ -24,6 +24,7 @@ st.set_page_config(
     layout="wide",
 )
 
+###################################################################################################################################################################
 # Creating the Side Bar Navigation Panel
 navigate = st.sidebar.radio('Navigation Side Bar',
                  ('Home Page', 'Overview', 'Customer Segmentation',
@@ -37,7 +38,8 @@ if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     if st.button('Show a sample of the data'):
         st.write(df.head())
-
+#####################################################################################################################################################################
+        
 # Creating the Home Page
 
 if navigate == 'Home Page':
@@ -194,7 +196,7 @@ bookings_line_chart.update_layout(title_text='Number of Monthly Booking by Hotel
 bookings_line_chart.update_layout(
     xaxis_title="Arrival Date",
     yaxis_title="Number of Bookings", width = 800)
-
+########################################################################################################################################################################
 # Creating the Overview Page
 
 if navigate == 'Overview':
@@ -212,7 +214,7 @@ if navigate == 'Overview':
     overview_visuals_1[1].plotly_chart(bookings_hotel_count)
 
     st.plotly_chart(fig)
-
+########################################################################################################################################################################
 # Creating the Time Series Analysis Page
 
 # Creating the Time Series Plots
@@ -369,7 +371,7 @@ if navigate == "Time Series Analysis":
         st.plotly_chart(adr_time_series)
     elif select_group == 'Total Stays':
         st.plotly_chart(total_stays_time_series)
-
+######################################################################################################################################################################
 
 # Creating the KPIs for segmentation page
 
@@ -471,6 +473,7 @@ customer_categories_line_chart.update_layout(
     yaxis_title="Bookings", 
     width = 900, height = 500)
 
+####################################################################################################################################################################
 # Creating the Market Segmentation Page 
 
 if navigate == "Customer Segmentation":
@@ -480,9 +483,11 @@ if navigate == "Customer Segmentation":
         country_col = st.columns(2)
         country_col[0].metric("# Unique Countries", value = len(countries_codes))
         country_col[1].metric("Top Country", value = country_name[0])
-        geo_cols = st.columns(2)
-        geo_cols[0].plotly_chart(countries_bar_chart)
-        geo_cols[1].plotly_chart(country_map)
+        #geo_cols = st.columns(2)
+        #geo_cols[0].plotly_chart(countries_bar_chart)
+        #geo_cols[1].plotly_chart(country_map)
+        st.plolty_chart(countries_bar_chart)
+        st.plotly_chart(country_map)
     elif select_segmentation == 'Guest Category Segmentation':
         category_cols = st.columns(2)
         category_cols[0].metric("Guest Categories", value = len(df['customer_type'].value_counts()))
