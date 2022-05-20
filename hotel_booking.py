@@ -414,7 +414,7 @@ countries_codes = countries_counts.index
 countries_data = {'Country': country_name, 'Bookings (%)': y}
 countries_df = pd.DataFrame(countries_data)
 countries_bar_chart = px.bar(countries_df, x='Country', y='Bookings (%)', color='Country', title='Bookings By Top 10 Countries')
-countries_bar_chart.update_layout(title_x=0.5, title_font=dict(size=22), showlegend=False, width = 550)
+countries_bar_chart.update_layout(title_x=0.5, title_font=dict(size=22), showlegend=False, width = 600)
 
 # Creating the Countries Map
 
@@ -426,7 +426,7 @@ country_map = px.choropleth(country_freq, color='count',
                     color_continuous_scale=px.colors.sequential.Teal)
 country_map.update_traces(marker=dict(line=dict(color='#000000', width=1)))
 country_map.update_layout(title_text='Number of Bookings by Countries',
-                  title_x=0.5, title_font=dict(size=22), width = 550)
+                  title_x=0.5, title_font=dict(size=22), width = 600)
 
 
 # Customer Category KPI
