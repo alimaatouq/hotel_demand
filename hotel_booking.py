@@ -21,7 +21,7 @@ from sklearn.linear_model import LogisticRegression
 st.set_page_config(
     page_title="Data Driven Hotel Marketing",
     page_icon="✅",
-    layout="wide",
+    layout="centered"
 )
 
 ###################################################################################################################################################################
