@@ -486,14 +486,15 @@ if navigate == "Customer Segmentation":
         #geo_cols = st.columns(2)
         #geo_cols[0].plotly_chart(countries_bar_chart)
         #geo_cols[1].plotly_chart(country_map)
-        st.plolty_chart(countries_bar_chart)
+        st.plotly_chart(countries_bar_chart)
         st.plotly_chart(country_map)
     elif select_segmentation == 'Guest Category Segmentation':
         category_cols = st.columns(2)
         category_cols[0].metric("Guest Categories", value = len(df['customer_type'].value_counts()))
         category_cols[1].metric("Top Category", value = customer_top_category)
         st.plotly_chart(customer_categories_line_chart)
-
+###################################################################################################################################################################
+        
 # Creating the Cancelation Prediction Page 
 
 if navigate == "Cancelation Prediction":
