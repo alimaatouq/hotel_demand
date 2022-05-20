@@ -361,7 +361,7 @@ total_stays_time_series.add_trace(go.Scatter(x=x, y=z, name='Monthly Stays in We
 total_stays_time_series['layout'].update(height=700, width=800, title='Total Stays Time Series')
 
 if navigate == "Time Series Analysis":
-    st.subheader('Time Series Analysis Across Multiple Fields')
+    st.markdown("<h3 style='text-align: center; color: black;'>Time Series Analysis Across Multiple Fields</h1>", unsafe_allow_html=True)
     select_group = st.selectbox("Select Field", ('Booking', 'Guest Arrival', 'Average Daily Rate', 'Total Stays'))
     if select_group == 'Booking':
         st.plotly_chart(bookings_time_series)
@@ -581,7 +581,7 @@ if navigate == "Cancelation Prediction":
     pipeline.fit(X_train,y_train)
     
     # Web App
-    st.title("Reservation Cancelation Prediction")
+    st.markdown("<h1 style='text-align: center; color: black;'>Reservation Cancelation Prediction</h1>", unsafe_allow_html=True)
     st.markdown("This Simple & Fast Reservation Cancelation Prediction tool will help the hotel in predicting the guest behavior with 80% accurecy.")
     st.markdown("Instructions: Simply change the values of the below predictors according to your preference and you're all set up")
     # User Data Entry
