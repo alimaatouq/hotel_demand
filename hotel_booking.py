@@ -471,7 +471,7 @@ customer_categories_line_chart.update_layout(title_text='Bookings by Customer Ty
 customer_categories_line_chart.update_layout(
     xaxis_title="Arrival Date",
     yaxis_title="Bookings", 
-    width = 900, height = 500)
+    width = 750, height = 500)
 
 ####################################################################################################################################################################
 # Creating the Market Segmentation Page 
